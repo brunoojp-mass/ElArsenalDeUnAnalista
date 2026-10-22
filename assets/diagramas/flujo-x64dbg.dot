@@ -1,0 +1,22 @@
+digraph flujoX64dbg {
+    rankdir=TB;
+    bgcolor="white";
+    graph [fontname="DejaVu Sans", nodesep=0.5, ranksep=0.5];
+    node  [fontname="DejaVu Sans", shape=box, style="filled,rounded",
+           penwidth=1.6, fontsize=12, margin="0.2,0.12", fontcolor="#102040"];
+    edge  [color="#2f8f86", penwidth=1.8, arrowsize=0.9, fontname="DejaVu Sans", fontsize=9];
+
+    s1 [label="1. Preparar entorno\nVM aislada · x32dbg/x64dbg · símbolos · plugins", fillcolor="#1b2a5b", fontcolor="white", color="#1b2a5b"];
+    s2 [label="2. Cargar binario\n(args si aplica)", fillcolor="#e8f8f6", color="#1b2a5b"];
+    s3 [label="3. Reconocimiento\nstrings · intermodular calls · memory map", fillcolor="#d7f0ee", color="#1b2a5b"];
+    s4 [label="4. Breakpoints\nF2 · bp · bpm (memoria)", fillcolor="#d7f0ee", color="#1b2a5b"];
+    s5 [label="5. Ejecución controlada\nF9 · F7 into · F8 over · Ctrl+F9", fillcolor="#d7f0ee", color="#1b2a5b"];
+    s6 [label="6. Análisis en el crash\nregistros · pila · dump · SEH · graph", fillcolor="#d7f0ee", color="#1b2a5b"];
+    s7 [label="7. Hipótesis / parcheo\neditar registro · Space (asm) · Patches", fillcolor="#fde5db", color="#c0603a"];
+    s8 [label="8. Documentar\ncapturas · offsets · evidencias", fillcolor="#1b2a5b", fontcolor="white", color="#1b2a5b"];
+
+    s1 -> s2 -> s3 -> s4 -> s5 -> s6 -> s7 -> s8;
+
+    s7 -> s5 [style=dashed, color="#c0603a", constraint=false, label="iterar\n(Ctrl+F2 reinicia)"];
+    s6 -> s4 [style=dashed, color="#c0603a", constraint=false, label="más breakpoints"];
+}
