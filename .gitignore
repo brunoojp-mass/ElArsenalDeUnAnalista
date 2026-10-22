@@ -1,0 +1,9 @@
+# Binarios y volcados
+*.exe
+*.dmp
+*.bin
+dumps/
+# Temporales
+__pycache__/
+*.pyc
+.DS_Store
